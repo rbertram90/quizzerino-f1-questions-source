@@ -22,13 +22,13 @@ class F1QuestionSource implements SourceInterface {
     public function getQuestion() : array {
         $pdo = new \PDO("sqlite:".__DIR__."/formula1.db");
 
-        $winner = $pdo->query("SELECT resultId, races.raceId, CONCAT(races.year, ' ', races.name) AS race_name, driverId
+        $winner = $pdo->query("SELECT resultId, races.raceId, races.year || ' ' || races.name AS race_name, driverId
             FROM results AS res
             JOIN races ON res.raceId = races.raceId
             WHERE `POSITION` = 1 ORDER BY RANDOM() LIMIT 1")->fetch(\PDO::FETCH_ASSOC);
         
         // Should always return 4 results
-        $top4 = $pdo->query("SELECT CONCAT(d.forename, ' ', d.surname) as `name`, res.position FROM results AS res
+        $top4 = $pdo->query("SELECT d.forename || ' ' || d.surname AS `name`, res.position FROM results AS res
             JOIN drivers AS d ON res.driverId = d.driverId
             WHERE raceId = {$winner['raceId']}
             AND res.position < 5
