@@ -1,0 +1,9 @@
+[
+    {
+        "id": "f1.race_winners",
+        "title": "Formula 1 - Who won the race?",
+        "description": "Pick the correct race winner.",
+        "controller": "\\quizzerino\\Formula1DB\\F1QuestionSource",
+        "settings": {}
+    }
+]

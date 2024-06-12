@@ -1,0 +1,17 @@
+{
+    "name": "rbwebdesigns/quizzerino-formula1-db-source",
+    "description": "Source questions from a database of Formula 1 statistics",
+    "type": "quizzerino-question-source",
+	"extra": {
+        "installer-name": "Formula1DB"
+    },
+    "require": {
+        "rbwebdesigns/quizzerino-installer": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Ricky Bertram",
+            "email": "ricky@rbwebdesigns.co.uk"
+        }
+    ]
+}
